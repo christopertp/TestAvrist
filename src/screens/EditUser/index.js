@@ -7,7 +7,7 @@ import {
     Platform,
 } from 'react-native'
 import { Formik } from 'formik';
-import { Input, Text, Avatar } from 'react-native-elements';
+import { Input, Text, Avatar, Icon } from 'react-native-elements';
 import axios from 'axios';
 import * as Yup from 'yup'
 import { useNavigation } from '@react-navigation/native';
@@ -218,7 +218,14 @@ export default function EditUser({ route }) {
     return (
         <View>
             <View style={styles.headerContainer}>
-                <Text style={styles.headerText} h1>Contact Detail</Text>
+                <Icon
+                    raised
+                    name='left'
+                    type='antdesign'
+                    color='#532A8C'
+                    size={12}
+                    onPress={() => navigation.goBack()} />
+                <Text style={styles.headerText} h4>Contact Detail</Text>
             </View>
             <LoadingOverlay visible={isLoadingData} />
             <View style={styles.wrapperUser}>
@@ -306,11 +313,16 @@ const styles = StyleSheet.create({
     },
     headerContainer: {
         width: '100%',
-        paddingHorizontal: 24,
+        alignItems:'center',
+        justifyContent:'flex-start',
+        flexDirection:'row',
+        paddingHorizontal: 16,
         paddingVertical: 16,
         backgroundColor: '#5E608C',
     },
     headerText: {
+        // fontSize:24,
+        marginLeft:8,
         textAlign: 'center',
         color: 'white',
     },
@@ -318,7 +330,7 @@ const styles = StyleSheet.create({
         width: '100%',
         marginTop: 16,
     },
-    buttonStyle:{
-        backgroundColor:'#532A8C',
+    buttonStyle: {
+        backgroundColor: '#532A8C',
     }
 })
